@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   currentLives: 3
   maxLives: 3
-  enemy: {fileID: 2349451479642354220, guid: dc794a6943558a04dba5498e230b7433, type: 3}
+  enemy: {fileID: 6581663696785344232, guid: 7a3ae8282c8c7024d84318acccc92f94, type: 3}
 --- !u!1 &3400141548332557545
 GameObject:
   m_ObjectHideFlags: 0

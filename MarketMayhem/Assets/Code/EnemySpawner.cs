@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Transform[] spawnpoints;
     [SerializeField] private GameObject[] enemyPrefabbers;
+    [SerializeField] private Transform player;
 
     //[SerializeField] Enemy enemy;
 
@@ -14,10 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     private bool waveDone = true;
 
-    private void Start()
-    {
-        //enemy = GetComponent<Enemy>();
-    }
+
 
     private void Update()
     {
@@ -35,11 +33,15 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < spawnCount; i++)
         {
             int randomSpawnPoint = Random.Range(0, spawnpoints.Length);
-            Instantiate(enemyPrefabbers[0], spawnpoints[randomSpawnPoint].position, transform.rotation);
+            GameObject enemy = Instantiate(enemyPrefabbers[0], spawnpoints[randomSpawnPoint].position, transform.rotation);
+
+            var destinationSetter = enemy.GetComponent<Pathfinding.AIDestinationSetter>();
+            destinationSetter.target = player;
+
             yield return new WaitForSeconds(spawnRate);
         }
 
-        spawnCount = +2;
+        spawnCount += 2;
         
         //spawnRate =- 0.5f;
 

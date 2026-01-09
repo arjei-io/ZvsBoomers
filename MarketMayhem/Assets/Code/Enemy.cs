@@ -3,8 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    [SerializeField]
-    private int health = 100;
+    [SerializeField] private int health = 100;
 
     private Rigidbody2D rb;
 
@@ -18,7 +17,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         }
     }
 

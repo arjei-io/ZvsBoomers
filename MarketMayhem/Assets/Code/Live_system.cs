@@ -51,13 +51,18 @@ public class Live_system : MonoBehaviour
             Destroy(go);
         }
 
+        foreach (GameObject go1 in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(go1);
+        }
+
         
     }
 
     public void Spawn()
     {
         gameObject.SetActive(true);
-        rb.transform.position = new Vector3(0, -4, 0);
+        rb.transform.position = new Vector3(1.5f, -4, 0);
     }
 
     public void ContinueLevel()
